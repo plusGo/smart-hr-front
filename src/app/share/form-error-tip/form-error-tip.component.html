@@ -1,0 +1,5 @@
+<ng-container *ngFor="let errorMessage of errorMessages">
+  <ng-container *ngIf="control.hasError(errorMessage?.error)">
+    {{fieldName}}{{errorMessage?.message}}
+  </ng-container>
+</ng-container>

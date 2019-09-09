@@ -1,0 +1,27 @@
+<form nz-form [formGroup]="form">
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="id">功能ID</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24" [nzErrorTip]="errorTpl">
+      <input maxlength="6" minlength="6" nz-input formControlName="id" id="id"/>
+      <ng-template #errorTpl let-control>
+        <app-form-error-tip [control]="control" fieldName="功能ID" field="id"
+                            [errorTips]="[{error:'minlength',message:'只能为6位'}]"></app-form-error-tip>
+      </ng-template>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="id">功能名称</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24" [nzErrorTip]="errorTpl2">
+      <input minlength="2" maxlength="255" nz-input formControlName="name" id="name"/>
+      <ng-template #errorTpl2 let-control>
+        <app-form-error-tip [control]="control" fieldName="功能名称" field="name"
+                            [errorTips]="[{error:'minlength',message:'功能名称至少2位'}]"></app-form-error-tip>
+      </ng-template>
+    </nz-form-control>
+  </nz-form-item>
+</form>
+<div *nzModalFooter>
+  <button [nzLoading]="submiting" [disabled]="form?.invalid" nz-button nzType="default" (click)="submit()">提交</button>
+  <button nz-button nzType="primary" (click)="cancel()">取消</button>
+</div>

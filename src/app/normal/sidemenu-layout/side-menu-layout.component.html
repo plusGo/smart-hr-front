@@ -1,0 +1,48 @@
+<nz-layout class="app-layout">
+  <nz-sider class="menu-sidebar"
+            nzCollapsible
+            nzWidth="256px"
+            nzBreakpoint="md"
+            [(nzCollapsed)]="isCollapsed"
+            [nzTrigger]="null">
+    <div class="sidebar-logo">
+      <img src="https://ng.ant.design/assets/img/logo.svg" alt="logo">
+      <h1 style="font-size: 20px">智慧·人事</h1>
+    </div>
+    <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+      <li nz-submenu nzOpen nzTitle="系统管理" nzIcon="form">
+        <ul>
+          <li [routerLink]="['/system/user-manage']" nz-menu-item nzMatchRouter>
+            <a>用户管理</a>
+          </li>
+          <li [routerLink]="['/system/role-manage']" nz-menu-item nzMatchRouter>
+            <a>角色管理</a>
+          </li>
+          <li [routerLink]="['/system/menu-manage']" nz-menu-item nzMatchRouter>
+            <a>菜单管理</a>
+          </li>
+          <li [routerLink]="['/system/function-manage']" nz-menu-item nzMatchRouter>
+            <a>功能管理</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nz-sider>
+  <nz-layout>
+    <nz-header>
+      <div class="app-header">
+        <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
+            <i class="trigger"
+               nz-icon
+               [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+            ></i>
+        </span>
+      </div>
+    </nz-header>
+    <nz-content>
+        <div class="inner-content">
+          <router-outlet></router-outlet>
+        </div>
+    </nz-content>
+  </nz-layout>
+</nz-layout>

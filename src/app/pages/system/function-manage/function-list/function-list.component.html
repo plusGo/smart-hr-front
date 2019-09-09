@@ -1,0 +1,33 @@
+<app-search-bar></app-search-bar>
+<div nz-row>
+  <div class="table-top-ops" nz-col nzSpan="24">
+    <button (click)="goToEdit()" nz-button nzType="primary">新增</button>
+    <button (click)="goToEdit('put')" [disabled]="!isSelectedOne" nz-button>修改</button>
+    <button (click)="delete()" [disabled]="isSelectedNone" nz-button>删除</button>
+  </div>
+</div>
+<br>
+<div nz-row>
+  <div nz-col nzSpan="24">
+    <nz-table #ajaxTable nzShowSizeChanger [nzFrontPagination]="false" [nzData]="data" [nzLoading]="loading"
+              [nzTotal]="total" [(nzPageIndex)]="pageIndex" [(nzPageSize)]="pageSize" (nzPageIndexChange)="loadData()"
+              (nzPageSizeChange)="loadData()">
+      <thead>
+      <tr>
+        <th nzShowCheckbox [nzChecked]="isSelectedAll" [nzIndeterminate]="isSelectedIndeterminate"
+            (nzCheckedChange)="checkAll($event)"
+        ></th>
+        <th>功能ID</th>
+        <th>功能名称</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr (click)="selectRow(data?.id)" *ngFor="let data of ajaxTable.data">
+        <td nzShowCheckbox [nzChecked]="isSelected(data?.id)" (nzCheckedChange)="selectRow(data?.id)"></td>
+        <td>{{ data?.id }}</td>
+        <td>{{ data?.name }}</td>
+      </tr>
+      </tbody>
+    </nz-table>
+  </div>
+</div>

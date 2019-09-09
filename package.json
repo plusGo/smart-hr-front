@@ -19,7 +19,11 @@
     "@angular/platform-browser": "~8.2.4",
     "@angular/platform-browser-dynamic": "~8.2.4",
     "@angular/router": "~8.2.4",
+    "hn-http": "0.0.1",
+    "ng-http-plus": "0.0.3",
+    "ng-zorro-antd": "^8.1.2",
     "rxjs": "~6.4.0",
+    "stream-plus": "0.0.2",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
   },

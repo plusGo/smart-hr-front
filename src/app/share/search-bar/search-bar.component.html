@@ -1,0 +1,25 @@
+<div nz-row [nzGutter]="12">
+  <div nz-col nzSpan="6">
+    <nz-form-item nzFlex>
+      <nz-form-label>功能ID</nz-form-label>
+      <nz-form-control>
+        <input nz-input/>
+      </nz-form-control>
+    </nz-form-item>
+  </div>
+  <div nz-col nzSpan="6">
+    <nz-form-item nzFlex>
+      <nz-form-label>功能名称</nz-form-label>
+      <nz-form-control>
+        <input nz-input/>
+      </nz-form-control>
+    </nz-form-item>
+  </div>
+  <div nz-col nzSpan="6" [nzOffset]="6">
+    <div nz-row nzType="flex" nzJustify="end">
+      <button nz-button>重置</button>
+      &nbsp;
+      <button nz-button nzType="primary">查询</button>
+    </div>
+  </div>
+</div>
